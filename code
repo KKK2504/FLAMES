@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+
+    int a[123]={0};
+    int b[123]={0};
+    char x[100];
+    char y[100];
+    printf("------------- F L A M E S ---- F I N D E R -------------\n\n");
+    printf("ENTER YOUR NAME [IN SMALL LETTERS] : ");
+    scanf("%s",x);
+    printf("ENTER YOUR CRUSH NAME [IN SMALL LETTERS] : ");
+    scanf("%s",y);
+// for counting
+    for(int i=0;i<strlen(x);i++)
+        a[  (int)x[i]  ]++;
+
+      for(int i=0;i<strlen(y);i++)
+           b[(int)y[i]]++;
+
+    int count=0;
+    for(int i=97;i<=122;i++)
+        count+=abs(a[i]-b[i]);
+
+    int aa[6]={1,1,1,1,1,1};
+    int c=0;
+    int idx=0;
+    // for removing each letter 5 times....
+    for(int i=1;i<=5;i++)
+    {
+        c=0;
+       while(c!=count)
+        {
+           if(aa[idx]!=0)
+           c++;
+           idx++;
+           if(idx==6)
+            idx=0;
+
+        }
+
+        if(idx==0)
+            aa[5]=0;
+        else
+            aa[idx-1]=0;
+    }
+
+    for(int i=0;i<6;i++)
+    {
+        if(aa[i] == 1)
+        {
+            switch(i)
+            {
+            case 0:
+                printf("\nFriend \n\n");
+                break;
+            case 1:
+                printf("\nLove \n\n");
+                break;
+            case 2:
+                printf("\nAffection \n\n");
+                break;
+            case 3:
+                printf("\nMarriage \n\n");
+                break;
+            case 4:
+                printf("\nEnemy \n\n");
+                break;
+            case 5:
+                printf("\nSiblings ");
+                break;
+            }
+        }
+    }
+return 0;
+}
